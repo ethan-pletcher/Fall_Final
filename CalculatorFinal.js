@@ -32,7 +32,7 @@ function displayCurrentInputdisp() {
 }
 
 /**
- * Checks for errors and then, if none are found, encapsulates the entire current input into a square root. It also updates the deleter fuction with the length of the
+ * Checks for errors and then, if none are found, encapsulates the entire current input into a square root. It also updates the deleter fuction with the length of the addition
  */
 function sqrroot() {
     errormessage = "";
@@ -51,7 +51,7 @@ function sqrroot() {
 }
 
 /**
- * [[Description]]
+ * change global variable "ifdegree" between  "0" and "1"
  */
 function change_ifdegree() {
     if (ifdegree == "0") {
@@ -63,9 +63,9 @@ function change_ifdegree() {
 }
 
 /**
- * [[Description]]
- * @param   {[[Type]]} str [[Description]]
- * @returns {boolean}  [[Description]]
+ * checks if the last digit of a string is a period
+ * @param   {string} str input string
+ * @returns {boolean}  whether or not the last digit is a period
  */
 function ldp(str) {
     if (str.slice(-1) == ".") {
@@ -77,9 +77,9 @@ function ldp(str) {
 }
 
 /**
- * [[Description]]
- * @param   {[[Type]]} str [[Description]]
- * @returns {boolean}  [[Description]]
+ * checks if the last digit of a string is an operator.
+ * @param   {string} str input string
+ * @returns {boolean}  whether or not the last digit is an operator
  */
 function ldo(str) {
     if (str.slice(-1) == "+" || str.slice(-1) == "/" || str.slice(-1) == "-" || str.slice(-1) == "*") {
@@ -91,9 +91,9 @@ function ldo(str) {
 }
 
 /**
- * [[Description]]
- * @param   {[[Type]]} str [[Description]]
- * @returns {boolean}  [[Description]]
+ * checks if the last digit of a string is a "*" or a "/".
+ * @param   {string} str input string
+ * @returns {boolean}  whether or not the last digit is a "*" or a "/".
  */
 function ldomultdiv(str) {
     if (str.slice(-1) == "*" || str.slice(-1) == "/") {
@@ -105,9 +105,9 @@ function ldomultdiv(str) {
 }
 
 /**
- * [[Description]]
- * @param   {[[Type]]} str [[Description]]
- * @returns {boolean}  [[Description]]
+ * checks if the last digit of a string is a "+" or a "-".
+ * @param   {string} str input string
+ * @returns {boolean}  whether or not the last digit is a "+" or a "-".
  */
 function ldoplusminus(str) {
     if (str.slice(-1) == "+" || str.slice(-1) == "-") {
@@ -119,9 +119,9 @@ function ldoplusminus(str) {
 }
 
 /**
- * [[Description]]
- * @param   {string}  str [[Description]]
- * @returns {boolean} [[Description]]
+ * checks whether or not a decimal should be allowed at the end of the input string
+ * @param   {string}  str input string
+ * @returns {boolean} whether or not a decimal would be an issue
  */
 function secondDecimal(str) {
     var chk = "0";
@@ -144,8 +144,8 @@ function secondDecimal(str) {
 }
 
 /**
- * [[Description]]
- * @param {[[Type]]} dig [[Description]]
+ * checks for errors and, if none exist, adds the inputted digit to the end of the strings. It also pushes a one to both the deleter arrays
+ * @param {string} dig digit to be added
  */
 function addDigit(dig) {
     errormessage = "";
@@ -164,7 +164,7 @@ function addDigit(dig) {
 }
 
 /**
- * [[Description]]
+ * checks for errors and, if none exist, adds a decimal to the end of the strings. It also pushes a one to both the deleter arrays
  */
 function addDecimal() {
     errormessage = "";
