@@ -1,4 +1,4 @@
-var onedelete = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+var onedelete = [1];
 var deletereal = [];
 var deletedisp = [];
 var errormessage = "";
@@ -7,10 +7,16 @@ var memvar = "";
 var currentInputdisp = "";
 var currentInputreal = "";
 // Helper function for displaying the current input
+
+/**
+ * displays the variable "errormessage"
+ */
 function displayErrorMessage() {
     document.getElementById('screen2').value = errormessage;
 }
-
+/**
+ * Displays the variable "currentInputdisp" and prevents a user from typing too many characters
+ */
 function displayCurrentInputdisp() {
     if (currentInputdisp.length >= 75) {
         deleter();
@@ -25,6 +31,9 @@ function displayCurrentInputdisp() {
     }
 }
 
+/**
+ * Checks for errors and then, if none are found, encapsulates the entire current input into a square root. It also updates the deleter fuction with the length of the
+ */
 function sqrroot() {
     errormessage = "";
     displayErrorMessage();
@@ -41,6 +50,9 @@ function sqrroot() {
     }
 }
 
+/**
+ * [[Description]]
+ */
 function change_ifdegree() {
     if (ifdegree == "0") {
         ifdegree = "1";
@@ -50,6 +62,11 @@ function change_ifdegree() {
     }
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} str [[Description]]
+ * @returns {boolean}  [[Description]]
+ */
 function ldp(str) {
     if (str.slice(-1) == ".") {
         return true;
@@ -59,6 +76,11 @@ function ldp(str) {
     }
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} str [[Description]]
+ * @returns {boolean}  [[Description]]
+ */
 function ldo(str) {
     if (str.slice(-1) == "+" || str.slice(-1) == "/" || str.slice(-1) == "-" || str.slice(-1) == "*") {
         return true;
@@ -68,6 +90,11 @@ function ldo(str) {
     }
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} str [[Description]]
+ * @returns {boolean}  [[Description]]
+ */
 function ldomultdiv(str) {
     if (str.slice(-1) == "*" || str.slice(-1) == "/") {
         return true;
@@ -77,6 +104,11 @@ function ldomultdiv(str) {
     }
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} str [[Description]]
+ * @returns {boolean}  [[Description]]
+ */
 function ldoplusminus(str) {
     if (str.slice(-1) == "+" || str.slice(-1) == "-") {
         return true;
@@ -85,7 +117,12 @@ function ldoplusminus(str) {
         return false;
     }
 }
-// Adds a decimal to the current input
+
+/**
+ * [[Description]]
+ * @param   {string}  str [[Description]]
+ * @returns {boolean} [[Description]]
+ */
 function secondDecimal(str) {
     var chk = "0";
     for (var i = str.length; i >= 0; i--) {
@@ -105,7 +142,11 @@ function secondDecimal(str) {
         return true;
     }
 }
-// Adds a digit to the current input
+
+/**
+ * [[Description]]
+ * @param {[[Type]]} dig [[Description]]
+ */
 function addDigit(dig) {
     errormessage = "";
     displayErrorMessage();
@@ -122,6 +163,9 @@ function addDigit(dig) {
     }
 }
 
+/**
+ * [[Description]]
+ */
 function addDecimal() {
     errormessage = "";
     displayErrorMessage();
@@ -144,6 +188,9 @@ function addDecimal() {
     displayCurrentInputdisp();
 }
 
+/**
+ * [[Description]]
+ */
 function m_plus() {
     errormessage = "";
     displayErrorMessage();
@@ -176,6 +223,9 @@ function m_plus() {
     }
 }
 
+/**
+ * [[Description]]
+ */
 function m_minus() {
     errormessage = "";
     displayErrorMessage();
@@ -203,6 +253,9 @@ function m_minus() {
     }
 }
 
+/**
+ * [[Description]]
+ */
 function m_reference() {
     errormessage = "";
     displayErrorMessage();
@@ -212,7 +265,10 @@ function m_reference() {
     deletereal.push((memvar.length));
     displayCurrentInputdisp();
 }
-// Clears everything.
+
+/**
+ * [[Description]]
+ */
 function allClear() {
     errormessage = "";
     displayErrorMessage();
@@ -224,12 +280,18 @@ function allClear() {
     displayCurrentInputdisp();
 }
 
+/**
+ * [[Description]]
+ */
 function m_clear() {
     errormessage = "";
     displayErrorMessage();
     memvar = "0";
 }
 
+/**
+ * [[Description]]
+ */
 function InputClear() {
     errormessage = "";
     displayErrorMessage();
@@ -240,6 +302,11 @@ function InputClear() {
     displayCurrentInputdisp();
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} op [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function mult_or_div(op) {
     var truth = false;
     if (op == "/" || op == "*") {
@@ -249,7 +316,10 @@ function mult_or_div(op) {
     }
     return truth;
 }
-// Stores the last operator pushed for multiply, divide, add, or subtract.
+/**
+ * [[Description]]
+ * @param {[[Type]]} op [[Description]]
+ */
 function addOperator(op) {
     errormessage = "";
     displayErrorMessage();
@@ -276,6 +346,9 @@ function addOperator(op) {
     }
 }
 // Calculate using operator, the memory and what is current
+/**
+ * [[Description]]
+ */
 function calculate() {
     errormessage = "";
     displayErrorMessage();
@@ -314,6 +387,9 @@ function calculate() {
     displayCurrentInputdisp();
 }
 // Change the sign of the current input
+/**
+ * [[Description]]
+ */
 function changeSign() {
     errormessage = "";
     displayErrorMessage();
@@ -336,6 +412,9 @@ function changeSign() {
     displayCurrentInputdisp();
 }
 // Clear the current input back to 0
+/**
+ * [[Description]]
+ */
 function deleter() {
     errormessage = "";
     displayErrorMessage();
@@ -346,6 +425,9 @@ function deleter() {
     displayCurrentInputdisp();
 }
 // Change the current input to a percentage
+/**
+ * [[Description]]
+ */
 function percentage() {
     errormessage = "";
     displayErrorMessage();
@@ -375,6 +457,9 @@ function percentage() {
     }
 }
 // Calculate the inverse of the current input
+/**
+ * [[Description]]
+ */
 function inverse() {
     if (ldo(currentInputdisp)) {
         errormessage = "Can't end with an Operator";
@@ -395,11 +480,19 @@ function inverse() {
     displayCurrentInputdisp();
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function square(num) {
     num = num * num;
     return num;
 }
 
+/**
+ * [[Description]]
+ */
 function squarebutton() {
     if (ldo(currentInputdisp)) {
         errormessage = "Can't end with an Operator";
@@ -420,6 +513,10 @@ function squarebutton() {
     displayCurrentInputdisp();
 }
 
+/**
+ * [[Description]]
+ * @param {[[Type]]} trigtype [[Description]]
+ */
 function trigbuttons(trigtype) {
     if (trigtype == 1) {
         currentInputdisp = currentInputdisp + "sin(";
@@ -507,6 +604,11 @@ function trigbuttons(trigtype) {
     }
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customsin(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -516,6 +618,11 @@ function customsin(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customcos(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -525,6 +632,11 @@ function customcos(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customtan(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -534,6 +646,11 @@ function customtan(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customsec(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -543,6 +660,11 @@ function customsec(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customcsc(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -552,6 +674,11 @@ function customcsc(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customcot(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -561,6 +688,11 @@ function customcot(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customarcsin(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -570,6 +702,11 @@ function customarcsin(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customarccos(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -579,6 +716,11 @@ function customarccos(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customarctan(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -588,6 +730,11 @@ function customarctan(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customarcsec(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -597,6 +744,11 @@ function customarcsec(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customarccsc(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -606,6 +758,11 @@ function customarccsc(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function customarccot(num) {
     var angle = eval(num);
     if (ifdegree == "1") {
@@ -615,6 +772,11 @@ function customarccot(num) {
     return solution;
 }
 
+/**
+ * [[Description]]
+ * @param   {string}  str [[Description]]
+ * @returns {boolean} [[Description]]
+ */
 function whichparenthesis(str) {
     var chk = 0;
     for (var i = str.length; i >= 0; i--) {
@@ -633,6 +795,9 @@ function whichparenthesis(str) {
     }
 }
 
+/**
+ * [[Description]]
+ */
 function parenthesisbackward() {
     if (ldp(currentInputdisp)) {
         errormessage = "Can't end with Period";
@@ -659,6 +824,9 @@ function parenthesisbackward() {
     }
 }
 
+/**
+ * [[Description]]
+ */
 function parenthesisforward() {
     if (ldp(currentInputdisp)) {
         errormessage = "Can't end with Period";
@@ -677,6 +845,11 @@ function parenthesisforward() {
     }
 }
 
+/**
+ * [[Description]]
+ * @param   {[[Type]]} num [[Description]]
+ * @returns {[[Type]]} [[Description]]
+ */
 function toFactorial(num) {
     var Factorial_num = 1;
     for (var i = 1; i <= num; i++) {
@@ -685,6 +858,9 @@ function toFactorial(num) {
     return (Factorial_num).toString();
 }
 // Calculate the factorial of the current input
+/**
+ * [[Description]]
+ */
 function factorial() {
     errormessage = "";
     displayErrorMessage();
@@ -714,6 +890,9 @@ function factorial() {
     }
 }
 
+/**
+ * [[Description]]
+ */
 function exponents() {
     console.log("called function");
     errormessage = "";
@@ -785,6 +964,9 @@ function exponents() {
     }
 }
 
+/**
+ * [[Description]]
+ */
 function pibutton() {
     currentInputdisp += "π";
     deletedisp.push(1);
@@ -793,6 +975,9 @@ function pibutton() {
     displayCurrentInputdisp();
 }
 
+/**
+ * [[Description]]
+ */
 function ebutton() {
     currentInputdisp += "e";
     deletedisp.push(1);
@@ -800,4 +985,4 @@ function ebutton() {
     deletereal.push(8);
     displayCurrentInputdisp();
 }
-// Calculate the square of the current input
+
