@@ -1,9 +1,9 @@
-var onedelete = [1];
-var deletereal = [];
-var deletedisp = [];
+var one_delete = [1];
+var delete_real = [];
+var delete_disp = [];
 var errormessage = "";
-var ifdegree = "0";
-var memvar = "";
+var if_degree = "0";
+var mem_var = "";
 var currentInputdisp = "";
 var currentInputreal = "";
 // Helper function for displaying the current input
@@ -43,9 +43,9 @@ function sqrroot() {
     }
     else {
         currentInputdisp += "√(";
-        deletedisp.push(2);
+        delete_disp.push(2);
         currentInputreal += "Math.sqrt(";
-        deletereal.push(10);
+        delete_real.push(10);
         displayCurrentInputdisp();
     }
 }
@@ -54,11 +54,11 @@ function sqrroot() {
  * change global variable "ifdegree" between  "0" and "1"
  */
 function change_ifdegree() {
-    if (ifdegree == "0") {
-        ifdegree = "1";
+    if (if_degree == "0") {
+        if_degree = "1";
     }
     else {
-        ifdegree = "0";
+        if_degree = "0";
     }
 }
 
@@ -156,9 +156,9 @@ function addDigit(dig) {
     }
     else {
         currentInputdisp = currentInputdisp + dig;
-        deletedisp.push(1);
+        delete_disp.push(1);
         currentInputreal = currentInputreal + dig;
-        deletereal.push(1);
+        delete_real.push(1);
         displayCurrentInputdisp();
     }
 }
@@ -180,9 +180,9 @@ function addDecimal() {
         }
         else {
             currentInputdisp = currentInputdisp + ".";
-            deletedisp.push(1);
+            delete_disp.push(1);
             currentInputreal = currentInputreal + ".";
-            deletereal.push(1);
+            delete_real.push(1);
         }
     }
     displayCurrentInputdisp();
@@ -207,18 +207,18 @@ function m_plus() {
             errormessage = "can't end in period";
             displayErrorMessage();
         }
-        else if (memvar === "") {
-            memvar = "0";
-            var initial_memvar = parseFloat(memvar);
+        else if (mem_var === "") {
+            mem_var = "0";
+            var initial_memvar = parseFloat(mem_var);
             var current_Input = (eval(currentInputreal));
             var calc = initial_memvar + current_Input;
-            memvar = calc.toString();
+            mem_var = calc.toString();
         }
         else {
-            var initial_memvar = parseFloat(memvar);
+            var initial_memvar = parseFloat(mem_var);
             var current_Input = (eval(currentInputreal));
             var calc = initial_memvar + current_Input;
-            memvar = calc.toString();
+            mem_var = calc.toString();
         }
     }
 }
@@ -244,10 +244,10 @@ function m_minus() {
                 displayErrorMessage();
             }
             else {
-                var initial_memvar = parseFloat(memvar);
+                var initial_memvar = parseFloat(mem_var);
                 var current_Input = (eval(currentInputreal));
                 var calc = initial_memvar - current_Input;
-                memvar = calc.toString();
+                mem_var = calc.toString();
             }
         }
     }
@@ -259,10 +259,10 @@ function m_minus() {
 function m_reference() {
     errormessage = "";
     displayErrorMessage();
-    currentInputdisp += memvar;
-    deletedisp.push((memvar.length));
-    currentInputreal += memvar;
-    deletereal.push((memvar.length));
+    currentInputdisp += mem_var;
+    delete_disp.push((mem_var.length));
+    currentInputreal += mem_var;
+    delete_real.push((mem_var.length));
     displayCurrentInputdisp();
 }
 
@@ -272,11 +272,11 @@ function m_reference() {
 function allClear() {
     errormessage = "";
     displayErrorMessage();
-    memvar = "0";
+    mem_var = "0";
     currentInputdisp = "";
     currentInputreal = "";
-    deletedisp = [];
-    deletereal = [];
+    delete_disp = [];
+    delete_real = [];
     displayCurrentInputdisp();
 }
 
@@ -286,7 +286,7 @@ function allClear() {
 function m_clear() {
     errormessage = "";
     displayErrorMessage();
-    memvar = "0";
+    mem_var = "0";
 }
 
 /**
@@ -297,8 +297,8 @@ function InputClear() {
     displayErrorMessage();
     currentInputdisp = "";
     currentInputreal = "";
-    deletedisp = [];
-    deletereal = [];
+    delete_disp = [];
+    delete_real = [];
     displayCurrentInputdisp();
 }
 
@@ -338,9 +338,9 @@ function addOperator(op) {
         }
         else {
             currentInputdisp = currentInputdisp + op;
-            deletedisp.push(1);
+            delete_disp.push(1);
             currentInputreal = currentInputreal + op;
-            deletereal.push(1);
+            delete_real.push(1);
         }
         displayCurrentInputdisp();
     }
@@ -374,12 +374,12 @@ function calculate() {
                     displayErrorMessage();
                 }
                 else {
-                    deletedisp = onedelete;
+                    delete_disp = one_delete;
                     var evaluation = (Math.round(eval(currentInputreal) * 1000000)) / 1000000;
                     currentInputdisp = evaluation.toString();
-                    deletedisp = [];
+                    delete_disp = [];
                     currentInputreal = evaluation.toString();
-                    deletereal = [];
+                    delete_real = [];
                 }
             }
         }
@@ -404,9 +404,9 @@ function changeSign() {
         }
         else {
             currentInputdisp = "-(" + currentInputdisp + ")";
-            deletedisp.push((3 + currentInputdisp.length));
+            delete_disp.push((3 + currentInputdisp.length));
             currentInputreal = "-(" + currentInputreal + ")";
-            deletereal.push((3 + currentInputreal.length));
+            delete_real.push((3 + currentInputreal.length));
         }
     }
     displayCurrentInputdisp();
@@ -418,8 +418,8 @@ function changeSign() {
 function deleter() {
     errormessage = "";
     displayErrorMessage();
-    var dispchange = deletedisp.pop();
-    var realchange = deletereal.pop();
+    var dispchange = delete_disp.pop();
+    var realchange = delete_real.pop();
     currentInputdisp = currentInputdisp.slice(0, -(dispchange));
     currentInputreal = currentInputreal.slice(0, -(realchange));
     displayCurrentInputdisp();
@@ -448,9 +448,9 @@ function percentage() {
             else {
                 var perc = (eval(currentInputreal)) * 0.01;
                 currentInputdisp = perc.toString();
-                deletedisp.push((currentInputdisp.length));
+                delete_disp.push((currentInputdisp.length));
                 currentInputreal = perc.toString();
-                deletereal.push((currentInputdisp.length));
+                delete_real.push((currentInputdisp.length));
             }
         }
         displayCurrentInputdisp();
@@ -472,9 +472,9 @@ function inverse() {
         }
         else {
             currentInputdisp = "1/(" + currentInputdisp + ")";
-            deletedisp.push((4 + currentInputdisp.length));
+            delete_disp.push((4 + currentInputdisp.length));
             currentInputreal = "1/(" + currentInputreal + ")";
-            deletereal.push((4 + currentInputreal.length));
+            delete_real.push((4 + currentInputreal.length));
         }
     }
     displayCurrentInputdisp();
@@ -505,9 +505,9 @@ function squarebutton() {
         }
         else {
             currentInputdisp = "(" + currentInputdisp + ")^2";
-            deletedisp.push((4 + currentInputdisp.length));
+            delete_disp.push((4 + currentInputdisp.length));
             currentInputreal = "square(" + currentInputreal + ")";
-            deletereal.push((8 + currentInputreal.length));
+            delete_real.push((8 + currentInputreal.length));
         }
     }
     displayCurrentInputdisp();
@@ -520,86 +520,86 @@ function squarebutton() {
 function trigbuttons(trigtype) {
     if (trigtype == 1) {
         currentInputdisp = currentInputdisp + "sin(";
-        deletedisp.push(4);
+        delete_disp.push(4);
         currentInputreal = currentInputreal + "customsin(";
-        deletereal.push(10);
+        delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 2) {
         currentInputdisp = currentInputdisp + "cos(";
-        deletedisp.push(4);
+        delete_disp.push(4);
         currentInputreal = currentInputreal + "customcos(";
-        deletereal.push(10);
+        delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 3) {
         currentInputdisp = currentInputdisp + "tan(";
-        deletedisp.push(4);
+        delete_disp.push(4);
         currentInputreal = currentInputreal + "customtan(";
-        deletereal.push(10);
+        delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 4) {
         currentInputdisp = currentInputdisp + "sec(";
-        deletedisp.push(4);
+        delete_disp.push(4);
         currentInputreal = currentInputreal + "customsec(";
-        deletereal.push(10);
+        delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 5) {
         currentInputdisp = currentInputdisp + "csc(";
-        deletedisp.push(4);
+        delete_disp.push(4);
         currentInputreal = currentInputreal + "customcsc(";
-        deletereal.push(10);
+        delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 6) {
         currentInputdisp = currentInputdisp + "cot(";
-        deletedisp.push(4);
+        delete_disp.push(4);
         currentInputreal = currentInputreal + "customcot(";
-        deletereal.push(10);
+        delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 7) {
         currentInputdisp = currentInputdisp + "arcsin(";
-        deletedisp.push(7);
+        delete_disp.push(7);
         currentInputreal = currentInputreal + "customarcsin(";
-        deletereal.push(13);
+        delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 8) {
         currentInputdisp = currentInputdisp + "arccos(";
-        deletedisp.push(7);
+        delete_disp.push(7);
         currentInputreal = currentInputreal + "customarccos(";
-        deletereal.push(13);
+        delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 9) {
         currentInputdisp = currentInputdisp + "arctan(";
-        deletedisp.push(7);
+        delete_disp.push(7);
         currentInputreal = currentInputreal + "customarctan(";
-        deletereal.push(13);
+        delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 10) {
         currentInputdisp = currentInputdisp + "arcsec(";
-        deletedisp.push(7);
+        delete_disp.push(7);
         currentInputreal = currentInputreal + "customarcsec(";
-        deletereal.push(13);
+        delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 11) {
         currentInputdisp = currentInputdisp + "arccsc(";
-        deletedisp.push(7);
+        delete_disp.push(7);
         currentInputreal = currentInputreal + "customarccsc(";
-        deletereal.push(13);
+        delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 12) {
         currentInputdisp = currentInputdisp + "arccot(";
-        deletedisp.push(7);
+        delete_disp.push(7);
         currentInputreal = currentInputreal + "customarccot(";
-        deletereal.push(13);
+        delete_real.push(13);
         displayCurrentInputdisp();
     }
 }
@@ -611,7 +611,7 @@ function trigbuttons(trigtype) {
  */
 function customsin(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = Math.sin(angle);
@@ -625,7 +625,7 @@ function customsin(num) {
  */
 function customcos(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = Math.cos(angle);
@@ -639,7 +639,7 @@ function customcos(num) {
  */
 function customtan(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = Math.tan(angle);
@@ -653,7 +653,7 @@ function customtan(num) {
  */
 function customsec(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = 1 / (Math.cos(angle));
@@ -667,7 +667,7 @@ function customsec(num) {
  */
 function customcsc(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = 1 / (Math.sin(angle));
@@ -681,7 +681,7 @@ function customcsc(num) {
  */
 function customcot(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = 1 / (Math.tan(angle));
@@ -695,7 +695,7 @@ function customcot(num) {
  */
 function customarcsin(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = Math.asin(angle);
@@ -709,7 +709,7 @@ function customarcsin(num) {
  */
 function customarccos(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = Math.acos(angle);
@@ -723,7 +723,7 @@ function customarccos(num) {
  */
 function customarctan(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = Math.atan(angle);
@@ -737,7 +737,7 @@ function customarctan(num) {
  */
 function customarcsec(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = 1 / (Math.acos(angle));
@@ -751,7 +751,7 @@ function customarcsec(num) {
  */
 function customarccsc(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = 1 / (Math.asin(angle));
@@ -765,7 +765,7 @@ function customarccsc(num) {
  */
 function customarccot(num) {
     var angle = eval(num);
-    if (ifdegree == "1") {
+    if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
     }
     var solution = 1 / (Math.atan(angle));
@@ -815,9 +815,9 @@ function parenthesisbackward() {
             }
             else {
                 currentInputdisp = currentInputdisp + ")";
-                deletedisp.push(1);
+                delete_disp.push(1);
                 currentInputreal = currentInputreal + ")";
-                deletereal.push(1);
+                delete_real.push(1);
             }
             displayCurrentInputdisp();
         }
@@ -838,9 +838,9 @@ function parenthesisforward() {
     }
     else {
         currentInputdisp = currentInputdisp + "(";
-        deletedisp.push(1);
+        delete_disp.push(1);
         currentInputreal = currentInputreal + "(";
-        deletereal.push(1);
+        delete_real.push(1);
         displayCurrentInputdisp();
     }
 }
@@ -871,7 +871,7 @@ function factorial() {
     }
     else {
         currentInputdisp += "!";
-        deletedisp.push(1);
+        delete_disp.push(1);
         var numlength = 0;
         for (var i = (currentInputdisp.length - 1); i >= 0; i--) {
             if ((currentInputdisp.charAt(i)) == "!") {}
@@ -884,8 +884,8 @@ function factorial() {
         }
         var num_factorial = parseFloat(currentInputdisp.slice((currentInputdisp.length - 1) - numlength));
         currentInputreal = currentInputreal.slice(0, -(numlength)) + "toFactorial(" + num_factorial + ")";
-        deletedisp.push(1 + numlength);
-        deletereal.push(13 + numlength);
+        delete_disp.push(1 + numlength);
+        delete_real.push(13 + numlength);
         displayCurrentInputdisp();
     }
 }
@@ -905,7 +905,7 @@ function exponents() {
     }
     else {
         currentInputdisp += "^(";
-        deletedisp.push(2);
+        delete_disp.push(2);
         var numlength = 2;
         if (currentInputdisp.slice(-3, -2) == ")") {
             var parenth = 0;
@@ -939,8 +939,8 @@ function exponents() {
             }
             var num_before = currentInputdisp.slice(0, -(numlength));
             currentInputreal = num_before + "Math.pow(" + currentInputdisp.slice(-numlength, -2) + ", ";
-            deletedisp.push(numlength);
-            deletereal.push(9 + numlength);
+            delete_disp.push(numlength);
+            delete_real.push(9 + numlength);
             displayCurrentInputdisp();
         }
         else {
@@ -957,8 +957,8 @@ function exponents() {
             var num_before = currentInputdisp.slice(0, -(numlength));
             console.log(num_before)
             currentInputreal = num_before + "Math.pow(" + currentInputdisp.slice(-numlength, -2) + ", ";
-            deletedisp.push(numlength);
-            deletereal.push(9 + numlength);
+            delete_disp.push(numlength);
+            delete_real.push(9 + numlength);
             displayCurrentInputdisp();
         }
     }
@@ -969,9 +969,9 @@ function exponents() {
  */
 function pibutton() {
     currentInputdisp += "π";
-    deletedisp.push(1);
+    delete_disp.push(1);
     currentInputreal += "(Math.PI)";
-    deletereal.push(9);
+    delete_real.push(9);
     displayCurrentInputdisp();
 }
 
@@ -980,9 +980,9 @@ function pibutton() {
  */
 function ebutton() {
     currentInputdisp += "e";
-    deletedisp.push(1);
+    delete_disp.push(1);
     currentInputreal += "(Math.E)";
-    deletereal.push(8);
+    delete_real.push(8);
     displayCurrentInputdisp();
 }
 
