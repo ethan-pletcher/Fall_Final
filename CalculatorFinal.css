@@ -1,0 +1,292 @@
+table tr td.click {
+    border-width: thick;
+    border-color: black;
+    width: 100px;
+    height: 60px;
+}
+
+table tr td.click a {
+    border: 1px solid black;
+    display: block;
+    width: 100px;
+    height: 60px;
+    background-color: #9ba5b2;
+    color: #fff;
+    text-align: center;
+    font-size: 24pt;
+}
+
+table tr td.click a:hover {
+    background-color: #f90;
+}
+
+table tr td.click1 {
+    border-width: thick;
+    border-color: black;
+    width: 100px;
+    height: 60px;
+}
+
+table tr td.click1 a {
+    border: 1px solid black;
+    display: block;
+    width: 100px;
+    height: 60px;
+    background-color: #566477;
+    color: #fff;
+    text-align: center;
+    font-size: 24pt;
+}
+
+table tr td.click1 a:hover {
+    background-color: #f90;
+}
+
+table tr td.click2 {
+    border-width: thick;
+    border-color: black;
+    width: 100px;
+    height: 60px;
+}
+
+table tr td.click2 a {
+    border: 1px solid black;
+    display: block;
+    width: 100px;
+    height: 60px;
+    background-color: green;
+    color: #fff;
+    text-align: center;
+    font-size: 24pt;
+}
+
+table tr td.click2 a:hover {
+    background-color: #f90;
+}
+
+table tr td.click3 {
+    border-width: thick;
+    border-color: black;
+    width: 100px;
+    height: 60px;
+}
+
+table tr td.click3 a {
+    border: 1px solid black;
+    display: block;
+    width: 100px;
+    height: 60px;
+    background-color: steelblue;
+    color: #fff;
+    text-align: center;
+    font-size: 24pt;
+}
+
+table tr td.click3 a:hover {
+    background-color: #f90;
+}
+
+table tr td.click4 {
+    border-width: thick;
+    border-color: black;
+    width: 100px;
+    height: 60px;
+}
+
+table tr td.click4 a {
+    border: 1px solid black;
+    display: block;
+    width: 100px;
+    height: 60px;
+    background-color: #113;
+    color: #fff;
+    text-align: center;
+    font-size: 24pt;
+}
+
+table tr td.click4 a:hover {
+    background-color: #f90;
+}
+
+table tr td.click5 {
+    border-width: thick;
+    border-color: black;
+    width: 100px;
+    height: 60px;
+}
+
+table tr td.click5 a {
+    border: 1px solid black;
+    display: block;
+    width: 100px;
+    height: 60px;
+    background-color: mediumpurple;
+    color: #fff;
+    text-align: center;
+    font-size: 24pt;
+}
+
+table tr td.click5 a:hover {
+    background-color: #f90;
+}
+
+.dropdown-menu .sub-menu {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    margin-top: -1px;
+    padding-right: 0px;
+    font-size: 8pt;
+}
+
+.dropdown-menu li:hover .sub-menu {
+    background-color: #566477;
+    visibility: visible;
+    width: 200px;
+}
+
+.dropdown:hover .dropdown-menu {
+    background-color: #566477;
+    display: block;
+}
+
+.dropdown {
+    background-color: #566477;
+    height: 60px;
+    width: 100px;
+}
+
+.trig {
+    font-size: 18pt;
+}
+
+.trig1 {
+    font-size: 12pt;
+}
+
+.caret {
+    color: black;
+}
+
+#trigtxt {
+    color: black;
+}
+
+#zero {
+    position: relative;
+    top: 10px
+}
+
+#divzero {
+    height: 60px;
+    width: 100px;
+}
+
+#screen {
+    width: 200px;
+    text-align: right;
+}
+
+input:focus {
+    outline: none;
+}
+
+#menu1 {
+    border-style: none;
+}
+
+
+/* -------------------------------Rad/Deg Button---------------------------*/
+
+.onoffswitch {
+    position: relative;
+    width: 80px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #999999;
+    border-radius: 16px;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 27px;
+    padding: 0;
+    line-height: 27px;
+    font-size: 16px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "RAD";
+    padding-left: 10px;
+    background-color: #87B6C2;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.onoffswitch-inner:after {
+    content: "DEG";
+    padding-right: 10px;
+    background-color: #9E9E9E;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block;
+    width: 22px;
+    margin: 4.5px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 46px;
+    border: 2px solid #999999;
+    border-radius: 16px;
+    transition: all 0.4s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
+
+#screen {
+    margin-top: 10px;
+    width: 600;
+    text-align: right;
+}
+
+#screen2 {
+    margin-top: 20px;
+    width: 500;
+    text-align: center;
+}
