@@ -23,8 +23,7 @@ function displayCurrentInputdisp() {
         errormessage = "Too Many Characters";
         displayErrorMessage();
         document.getElementById('screen').value = currentInputdisp;
-    }
-    else {
+    } else {
         document.getElementById('screen').value = currentInputdisp;
         console.log(currentInputdisp);
         console.log(currentInputreal);
@@ -38,10 +37,9 @@ function sqrRoot() {
     errormessage = "";
     displayErrorMessage();
     if (ldp(currentInputdisp)) {
-        errormessage = "Unexpected Period";
+        errormessage = "Unexpected a decimal";
         displayErrorMessage();
-    }
-    else {
+    } else {
         currentInputdisp += "√(";
         delete_disp.push(2);
         currentInputreal += "Math.sqrt(";
@@ -56,22 +54,20 @@ function sqrRoot() {
 function change_ifdegree() {
     if (if_degree == "0") {
         if_degree = "1";
-    }
-    else {
+    } else {
         if_degree = "0";
     }
 }
 
 /**
- * checks if the last digit of a string is a period
+ * checks if the last digit of a string is a decimal
  * @param   {string} str input string
- * @returns {boolean}  whether or not the last digit is a period
+ * @returns {boolean}  whether or not the last digit is a decimal
  */
 function ldp(str) {
     if (str.slice(-1) == ".") {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -84,8 +80,7 @@ function ldp(str) {
 function ldo(str) {
     if (str.slice(-1) == "+" || str.slice(-1) == "/" || str.slice(-1) == "-" || str.slice(-1) == "*") {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -98,8 +93,7 @@ function ldo(str) {
 function ldoMultDiv(str) {
     if (str.slice(-1) == "*" || str.slice(-1) == "/") {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -112,8 +106,7 @@ function ldoMultDiv(str) {
 function ldoPlusMinus(str) {
     if (str.slice(-1) == "+" || str.slice(-1) == "-") {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -126,19 +119,16 @@ function ldoPlusMinus(str) {
 function secondDecimal(str) {
     var chk = "0";
     for (var i = str.length; i >= 0; i--) {
-        if (isNaN(str.charAt(i)) === false) {}
-        else if (str.charAt(i) == ".") {
+        if (isNaN(str.charAt(i)) === false) {
+        } else if (str.charAt(i) == ".") {
             chk = "1";
             break;
-        }
-        else if (isNaN(str.charAt(i)) === true) {
+        } else if (isNaN(str.charAt(i)) === true) {
             break;
         }
-    }
-    if (chk == "0") {
+    } if (chk == "0") {
         return false;
-    }
-    else if (chk == "1") {
+    } else if (chk == "1") {
         return true;
     }
 }
@@ -153,8 +143,7 @@ function addDigit(dig) {
     if ((currentInputdisp.slice(-1)) == "!") {
         errormessage = "Can't Put number after factorial";
         displayErrorMessage();
-    }
-    else {
+    } else {
         currentInputdisp = currentInputdisp + dig;
         delete_disp.push(1);
         currentInputreal = currentInputreal + dig;
@@ -170,15 +159,13 @@ function addDecimal() {
     errormessage = "";
     displayErrorMessage();
     if (ldp(currentInputdisp)) {
-        errormessage = "there is already a period";
+        errormessage = "there is already a decimal";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (secondDecimal(currentInputdisp)) {
-            errormessage = "Improper Period Placement";
+            errormessage = "Improper Decimal Placement";
             displayErrorMessage();
-        }
-        else {
+        } else {
             currentInputdisp = currentInputdisp + ".";
             delete_disp.push(1);
             currentInputreal = currentInputreal + ".";
@@ -197,24 +184,20 @@ function m_plus() {
     if ((isNaN(eval(currentInputreal))) === true) {
         errormessage = "Non a complete function";
         displayErrorMessage();
-    }
-    if (ldo(currentInputdisp)) {
+    } if (ldo(currentInputdisp)) {
         errormessage = "Can't end in operator";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (ldp(currentInputdisp)) {
-            errormessage = "can't end in period";
+            errormessage = "can't end in a decimal";
             displayErrorMessage();
-        }
-        else if (mem_var === "") {
+        } else if (mem_var === "") {
             mem_var = "0";
             var initial_memvar = parseFloat(mem_var);
             var current_Input = (eval(currentInputreal));
             var calc = initial_memvar + current_Input;
             mem_var = calc.toString();
-        }
-        else {
+        } else {
             var initial_memvar = parseFloat(mem_var);
             var current_Input = (eval(currentInputreal));
             var calc = initial_memvar + current_Input;
@@ -232,18 +215,15 @@ function m_minus() {
     if ((isNaN(eval(currentInputreal))) === true) {
         errormessage = "Non a complete function";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (ldo(currentInputdisp)) {
             errormessage = "Can't end in operator";
             displayErrorMessage();
-        }
-        else {
+        } else {
             if (ldp(currentInputdisp)) {
-                errormessage = "can't end in period";
+                errormessage = "can't end in a decimal";
                 displayErrorMessage();
-            }
-            else {
+            } else {
                 var initial_memvar = parseFloat(mem_var);
                 var current_Input = (eval(currentInputreal));
                 var calc = initial_memvar - current_Input;
@@ -326,17 +306,14 @@ function addOperator(op) {
     if (ldoMultDiv(currentInputdisp) === true || mult_or_div(op) === true) {
         errormessage = "Can't end with Operator";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (ldp(currentInputdisp)) {
-            errormessage = "Can't end with Period";
+            errormessage = "Can't end with a decimal";
             displayErrorMessage();
-        }
-        else if (ldoPlusMinus(currentInputdisp.slice(-1)) === true && ldoPlusMinus(currentInputdisp.slice(-2, -1)) === true) {
+        } else if (ldoPlusMinus(currentInputdisp.slice(-1)) === true && ldoPlusMinus(currentInputdisp.slice(-2, -1)) === true) {
             errormessage = "Too many operators";
             displayErrorMessage();
-        }
-        else {
+        } else {
             currentInputdisp = currentInputdisp + op;
             delete_disp.push(1);
             currentInputreal = currentInputreal + op;
@@ -354,25 +331,21 @@ function calculate() {
     if (isNaN(eval(currentInputreal)) === true) {
         errormessage = "Not a Real Number";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (ldo(currentInputdisp)) {
             errormessage = "Can't end with Operator";
             displayErrorMessage();
-        }
-        else {
+        } else {
             if (ldp(currentInputdisp)) {
-                errormessage = "Can't end with Period";
+                errormessage = "Can't end with a decimal";
                 displayErrorMessage();
-            }
-            else {
+            } else {
                 var calc = (eval(currentInputreal));
                 calc = calc.toString();
                 if (calc == "Infinity") {
                     errormessage = "Can't divide by zero";
                     displayErrorMessage();
-                }
-                else {
+                } else {
                     delete_disp = one_delete;
                     var evaluation = (Math.round(eval(currentInputreal) * 1000000)) / 1000000;
                     currentInputdisp = evaluation.toString();
@@ -394,13 +367,11 @@ function changeSign() {
     if (ldo(currentInputdisp)) {
         errormessage = "Can't end with an Operator";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (ldp(currentInputdisp)) {
-            errormessage = "Can't end with Period";
+            errormessage = "Can't end with a decimal";
             displayErrorMessage();
-        }
-        else {
+        } else {
             currentInputdisp = "-(" + currentInputdisp + ")";
             delete_disp.push((3 + currentInputdisp.length));
             currentInputreal = "-(" + currentInputreal + ")";
@@ -432,18 +403,15 @@ function percentage() {
     if ((isNaN(eval(currentInputreal))) === true) {
         errormessage = "Not a complete function";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (ldo(currentInputdisp)) {
             errormessage = "Can't end with an Operator";
             displayErrorMessage();
-        }
-        else {
+        } else {
             if (ldp(currentInputdisp)) {
-                errormessage = "Can't end with Period";
+                errormessage = "Can't end with a decimal";
                 displayErrorMessage();
-            }
-            else {
+            } else {
                 var perc = (eval(currentInputreal)) * 0.01;
                 currentInputdisp = perc.toString();
                 delete_disp.push((currentInputdisp.length));
@@ -462,13 +430,11 @@ function inverse() {
     if (ldo(currentInputdisp)) {
         errormessage = "Can't end with an Operator";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (ldp(currentInputdisp)) {
-            errormessage = "Can't end with Period";
+            errormessage = "Can't end with a decimal";
             displayErrorMessage();
-        }
-        else {
+        } else {
             currentInputdisp = "1/(" + currentInputdisp + ")";
             delete_disp.push((4 + currentInputdisp.length));
             currentInputreal = "1/(" + currentInputreal + ")";
@@ -495,13 +461,11 @@ function squareButton() {
     if (ldo(currentInputdisp)) {
         errormessage = "Can't end with an Operator";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (ldp(currentInputdisp)) {
-            errormessage = "Can't end with Period";
+            errormessage = "Can't end with a decimal";
             displayErrorMessage();
-        }
-        else {
+        } else {
             currentInputdisp = "(" + currentInputdisp + ")^2";
             delete_disp.push((4 + currentInputdisp.length));
             currentInputreal = "square(" + currentInputreal + ")";
@@ -522,78 +486,67 @@ function trigButtons(trigtype) {
         currentInputreal = currentInputreal + "customSin(";
         delete_real.push(10);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 2) {
+    } else if (trigtype == 2) {
         currentInputdisp = currentInputdisp + "cos(";
         delete_disp.push(4);
         currentInputreal = currentInputreal + "customCos(";
         delete_real.push(10);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 3) {
+    } else if (trigtype == 3) {
         currentInputdisp = currentInputdisp + "tan(";
         delete_disp.push(4);
         currentInputreal = currentInputreal + "customTan(";
         delete_real.push(10);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 4) {
+    } else if (trigtype == 4) {
         currentInputdisp = currentInputdisp + "sec(";
         delete_disp.push(4);
         currentInputreal = currentInputreal + "customSec(";
         delete_real.push(10);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 5) {
+    } else if (trigtype == 5) {
         currentInputdisp = currentInputdisp + "csc(";
         delete_disp.push(4);
         currentInputreal = currentInputreal + "customCsc(";
         delete_real.push(10);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 6) {
+    } else if (trigtype == 6) {
         currentInputdisp = currentInputdisp + "cot(";
         delete_disp.push(4);
         currentInputreal = currentInputreal + "customCot(";
         delete_real.push(10);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 7) {
+    } else if (trigtype == 7) {
         currentInputdisp = currentInputdisp + "arcsin(";
         delete_disp.push(7);
         currentInputreal = currentInputreal + "customArcSin(";
         delete_real.push(13);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 8) {
+    } else if (trigtype == 8) {
         currentInputdisp = currentInputdisp + "arccos(";
         delete_disp.push(7);
         currentInputreal = currentInputreal + "customArcCos(";
         delete_real.push(13);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 9) {
+    } else if (trigtype == 9) {
         currentInputdisp = currentInputdisp + "arctan(";
         delete_disp.push(7);
         currentInputreal = currentInputreal + "customArcTan(";
         delete_real.push(13);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 10) {
+    } else if (trigtype == 10) {
         currentInputdisp = currentInputdisp + "arcsec(";
         delete_disp.push(7);
         currentInputreal = currentInputreal + "customArcSec(";
         delete_real.push(13);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 11) {
+    } else if (trigtype == 11) {
         currentInputdisp = currentInputdisp + "arccsc(";
         delete_disp.push(7);
         currentInputreal = currentInputreal + "customArcCsc(";
         delete_real.push(13);
         displayCurrentInputdisp();
-    }
-    else if (trigtype == 12) {
+    } else if (trigtype == 12) {
         currentInputdisp = currentInputdisp + "arccot(";
         delete_disp.push(7);
         currentInputreal = currentInputreal + "customArcCot(";
@@ -780,15 +733,12 @@ function whichParenthesis(str) {
     for (var i = str.length; i >= 0; i--) {
         if (str.charAt(i) == "(") {
             chk = chk + 1;
-        }
-        else if (str.charAt(i) == ")") {
+        } else if (str.charAt(i) == ")") {
             chk = chk - 1;
         }
-    }
-    if (chk > 0) {
+    } if (chk > 0) {
         return false;
-    }
-    else {
+    } else {
         return true;
     }
 }
@@ -798,20 +748,17 @@ function whichParenthesis(str) {
  */
 function parenthesisBackward() {
     if (ldp(currentInputdisp)) {
-        errormessage = "Can't end with Period";
+        errormessage = "Can't end with a decimal";
         displayErrorMessage();
-    }
-    else {
+    } else {
         if (ldo(currentInputdisp)) {
             errormessage = "Can't end with an Operator";
             displayErrorMessage();
-        }
-        else {
+        } else {
             if (whichParenthesis(currentInputdisp) === true) {
                 errormessage = "Parenthesis Missalignment";
                 displayErrorMessage();
-            }
-            else {
+            } else {
                 currentInputdisp = currentInputdisp + ")";
                 delete_disp.push(1);
                 currentInputreal = currentInputreal + ")";
@@ -827,14 +774,12 @@ function parenthesisBackward() {
  */
 function parenthesisForward() {
     if (ldp(currentInputdisp)) {
-        errormessage = "Can't end with Period";
+        errormessage = "Can't end with a decimal";
         displayErrorMessage();
-    }
-    else if (isNaN(currentInputdisp.slice(-1)) === false) {
+    } else if (isNaN(currentInputdisp.slice(-1)) === false) {
         errormessage = "Operator Needed";
         displayErrorMessage();
-    }
-    else {
+    } else {
         currentInputdisp = currentInputdisp + "(";
         delete_disp.push(1);
         currentInputreal = currentInputreal + "(";
@@ -866,17 +811,15 @@ function factorial() {
     if ((isNaN(numberchk)) === true) {
         errormessage = "Can't take Factorial of a Non-Number";
         displayErrorMessage();
-    }
-    else {
+    } else {
         currentInputdisp += "!";
         delete_disp.push(1);
         var numlength = 0;
         for (var i = (currentInputdisp.length - 1); i >= 0; i--) {
-            if ((currentInputdisp.charAt(i)) == "!") {}
-            else if (isNaN(parseFloat(currentInputdisp.charAt(i))) === false || currentInputdisp.charAt(i) == ".") {
+            if ((currentInputdisp.charAt(i)) == "!") {
+            } else if (isNaN(parseFloat(currentInputdisp.charAt(i))) === false || currentInputdisp.charAt(i) == ".") {
                 numlength += 1;
-            }
-            else if (isNaN(parseFloat(currentInputdisp.charAt(i))) === true) {
+            } else if (isNaN(parseFloat(currentInputdisp.charAt(i))) === true) {
                 break;
             }
         }
@@ -900,8 +843,7 @@ function exponents() {
         console.log("error");
         errormessage = "Can't take exponent of a Non-Number";
         displayErrorMessage();
-    }
-    else {
+    } else {
         currentInputdisp += "^(";
         delete_disp.push(2);
         var numlength = 2;
@@ -912,24 +854,20 @@ function exponents() {
                     parenth += 1;
                     numlength += 1;
                     console.log(parenth);
-                }
-                else if ((currentInputdisp.charAt(i)) === "(") {
+                } else if ((currentInputdisp.charAt(i)) === "(") {
                     numlength += 1;
                     parenth -= 1;
                     if (parenth > 0) {
                         console.log(parenth);
-                    }
-                    else {
+                    } else {
                         console.log(parenth);
                         break;
                     }
-                }
-                else {
+                } else {
                     if (parenth == 0) {
                         console.log(parenth);
                         break;
-                    }
-                    else {
+                    } else {
                         console.log(parenth);
                         numlength += 1;
                     }
@@ -940,14 +878,12 @@ function exponents() {
             delete_disp.push(numlength);
             delete_real.push(9 + numlength);
             displayCurrentInputdisp();
-        }
-        else {
+        } else {
             console.log("call 2");
             for (var i = (currentInputdisp.length - 3); i >= 0; i--) {
                 if ((currentInputdisp.charAt(i)) === "!" || isNaN(currentInputdisp.charAt(i)) === false || currentInputdisp.charAt(i) == ".") {
                     numlength += 1;
-                }
-                else if (isNaN(currentInputdisp.charAt(i)) === true) {
+                } else if (isNaN(currentInputdisp.charAt(i)) === true) {
                     break;
                 }
             }
