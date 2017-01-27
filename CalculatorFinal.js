@@ -409,9 +409,8 @@ function changeSign() {
     }
     displayCurrentInputdisp();
 }
-// Clear the current input back to 0
 /**
- * [[Description]]
+ * delete from the end of the current input and real current input strings a number of characters that varies based on the last element of the deleter array
  */
 function deleter() {
     errormessage = "";
@@ -422,9 +421,8 @@ function deleter() {
     currentInputreal = currentInputreal.slice(0, -(realchange));
     displayCurrentInputdisp();
 }
-// Change the current input to a percentage
 /**
- * [[Description]]
+ * Multiply the simplification of the current input by .01
  */
 function percentage() {
     errormessage = "";
@@ -454,9 +452,8 @@ function percentage() {
         displayCurrentInputdisp();
     }
 }
-// Calculate the inverse of the current input
 /**
- * [[Description]]
+ * Calculate the inverse of the current input
  */
 function inverse() {
     if (ldo(currentInputdisp)) {
@@ -479,9 +476,9 @@ function inverse() {
 }
 
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * returns the square of a number
+ * @param   {number} num number to be squared
+ * @returns {number} the result of squaring
  */
 function square(num) {
     num = num * num;
@@ -489,7 +486,7 @@ function square(num) {
 }
 
 /**
- * [[Description]]
+ * encapsolates the current input in a set of parentheses that is taken to the power of 2.
  */
 function squareButton() {
     if (ldo(currentInputdisp)) {
@@ -512,8 +509,8 @@ function squareButton() {
 }
 
 /**
- * [[Description]]
- * @param {[[Type]]} trigtype [[Description]]
+ * Adds a trig function based on the input number to the end of the current input
+ * @param {number} trigtype signifies which trig function is required
  */
 function trigButtons(trigtype) {
     if (trigtype == 1) {
@@ -601,11 +598,10 @@ function trigButtons(trigtype) {
         displayCurrentInputdisp();
     }
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customSin(num) {
     var angle = eval(num);
@@ -615,11 +611,10 @@ function customSin(num) {
     var solution = Math.sin(angle);
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customCos(num) {
     var angle = eval(num);
@@ -629,11 +624,10 @@ function customCos(num) {
     var solution = Math.cos(angle);
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customTan(num) {
     var angle = eval(num);
@@ -643,11 +637,10 @@ function customTan(num) {
     var solution = Math.tan(angle);
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customSec(num) {
     var angle = eval(num);
@@ -657,11 +650,10 @@ function customSec(num) {
     var solution = 1 / (Math.cos(angle));
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customCsc(num) {
     var angle = eval(num);
@@ -671,11 +663,10 @@ function customCsc(num) {
     var solution = 1 / (Math.sin(angle));
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customCot(num) {
     var angle = eval(num);
@@ -685,11 +676,10 @@ function customCot(num) {
     var solution = 1 / (Math.tan(angle));
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customArcSin(num) {
     var angle = eval(num);
@@ -699,11 +689,10 @@ function customArcSin(num) {
     var solution = Math.asin(angle);
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customArcCos(num) {
     var angle = eval(num);
@@ -713,11 +702,10 @@ function customArcCos(num) {
     var solution = Math.acos(angle);
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customArcTan(num) {
     var angle = eval(num);
@@ -727,11 +715,10 @@ function customArcTan(num) {
     var solution = Math.atan(angle);
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customArcSec(num) {
     var angle = eval(num);
@@ -741,11 +728,10 @@ function customArcSec(num) {
     var solution = 1 / (Math.acos(angle));
     return solution;
 }
-
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customArcCsc(num) {
     var angle = eval(num);
@@ -757,9 +743,9 @@ function customArcCsc(num) {
 }
 
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Uses the current rad/degree mode to calculate the trig function
+ * @param   {number} num number to be inside the trig function
+ * @returns {number} solution to the function
  */
 function customArcCot(num) {
     var angle = eval(num);
@@ -771,9 +757,9 @@ function customArcCot(num) {
 }
 
 /**
- * [[Description]]
- * @param   {string}  str [[Description]]
- * @returns {boolean} [[Description]]
+ * determines which () should be used
+ * @param   {string}  str current input
+ * @returns {boolean} which ()
  */
 function whichParenthesis(str) {
     var chk = 0;
@@ -794,7 +780,7 @@ function whichParenthesis(str) {
 }
 
 /**
- * [[Description]]
+ * adds a )
  */
 function parenthesisBackward() {
     if (ldp(currentInputdisp)) {
@@ -823,7 +809,7 @@ function parenthesisBackward() {
 }
 
 /**
- * [[Description]]
+ * adds a (
  */
 function parenthesisForward() {
     if (ldp(currentInputdisp)) {
@@ -844,9 +830,9 @@ function parenthesisForward() {
 }
 
 /**
- * [[Description]]
- * @param   {[[Type]]} num [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * Calculate the factorial of a number
+ * @param   {number} num the number to be factorialized
+ * @returns {string} a string displaying the solution
  */
 function toFactorial(num) {
     var Factorial_num = 1;
@@ -855,9 +841,8 @@ function toFactorial(num) {
     }
     return (Factorial_num).toString();
 }
-// Calculate the factorial of the current input
 /**
- * [[Description]]
+ * Calculate the factorial of the current input
  */
 function factorial() {
     errormessage = "";
@@ -889,7 +874,7 @@ function factorial() {
 }
 
 /**
- * [[Description]]
+ * Sets up the last entity of the current input to be taken to the power of a number.
  */
 function exponents() {
     console.log("called function");
@@ -963,7 +948,7 @@ function exponents() {
 }
 
 /**
- * [[Description]]
+ * Adds pi
  */
 function piButton() {
     currentInputdisp += "π";
@@ -974,7 +959,7 @@ function piButton() {
 }
 
 /**
- * [[Description]]
+ * adds e
  */
 function eButton() {
     currentInputdisp += "e";
