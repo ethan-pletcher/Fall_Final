@@ -777,7 +777,7 @@ function customArcCot(num) {
  * @param   {string}  str [[Description]]
  * @returns {boolean} [[Description]]
  */
-function whichparenthesis(str) {
+function whichParenthesis(str) {
     var chk = 0;
     for (var i = str.length; i >= 0; i--) {
         if (str.charAt(i) == "(") {
@@ -798,7 +798,7 @@ function whichparenthesis(str) {
 /**
  * [[Description]]
  */
-function parenthesisbackward() {
+function parenthesisBackward() {
     if (ldp(currentInputdisp)) {
         errormessage = "Can't end with Period";
         displayErrorMessage();
@@ -809,7 +809,7 @@ function parenthesisbackward() {
             displayErrorMessage();
         }
         else {
-            if (whichparenthesis(currentInputdisp) === true) {
+            if (whichParenthesis(currentInputdisp) === true) {
                 errormessage = "Parenthesis Missalignment";
                 displayErrorMessage();
             }
@@ -827,7 +827,7 @@ function parenthesisbackward() {
 /**
  * [[Description]]
  */
-function parenthesisforward() {
+function parenthesisForward() {
     if (ldp(currentInputdisp)) {
         errormessage = "Can't end with Period";
         displayErrorMessage();
@@ -967,7 +967,7 @@ function exponents() {
 /**
  * [[Description]]
  */
-function pibutton() {
+function piButton() {
     currentInputdisp += "π";
     delete_disp.push(1);
     currentInputreal += "(Math.PI)";
@@ -978,7 +978,7 @@ function pibutton() {
 /**
  * [[Description]]
  */
-function ebutton() {
+function eButton() {
     currentInputdisp += "e";
     delete_disp.push(1);
     currentInputreal += "(Math.E)";
