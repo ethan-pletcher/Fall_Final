@@ -189,7 +189,7 @@ function addDecimal() {
 }
 
 /**
- * [[Description]]
+ * Adds the current display to a separate global variable that stores it as memory.
  */
 function m_plus() {
     errormessage = "";
@@ -224,7 +224,7 @@ function m_plus() {
 }
 
 /**
- * [[Description]]
+ * subtracts the current display from a separate global variable that stores it as memory.
  */
 function m_minus() {
     errormessage = "";
@@ -254,7 +254,7 @@ function m_minus() {
 }
 
 /**
- * [[Description]]
+ * adds the contents of the stored memory variable to the current display.
  */
 function m_reference() {
     errormessage = "";
@@ -267,7 +267,7 @@ function m_reference() {
 }
 
 /**
- * [[Description]]
+ * clears memory, current input, and real current input.
  */
 function allClear() {
     errormessage = "";
@@ -281,7 +281,7 @@ function allClear() {
 }
 
 /**
- * [[Description]]
+ * clears only memory.
  */
 function m_clear() {
     errormessage = "";
@@ -290,7 +290,7 @@ function m_clear() {
 }
 
 /**
- * [[Description]]
+ * clears only the input string
  */
 function InputClear() {
     errormessage = "";
@@ -303,9 +303,9 @@ function InputClear() {
 }
 
 /**
- * [[Description]]
- * @param   {[[Type]]} op [[Description]]
- * @returns {[[Type]]} [[Description]]
+ * checks whether two operators in a row is a problem
+ * @param   {string} op operator
+ * @returns {boolean} whether or not
  */
 function mult_or_div(op) {
     var truth = false;
@@ -317,8 +317,8 @@ function mult_or_div(op) {
     return truth;
 }
 /**
- * [[Description]]
- * @param {[[Type]]} op [[Description]]
+ * adds an operator to the end of current input after first checking for any errors that may exist
+ * @param {string} op operator
  */
 function addOperator(op) {
     errormessage = "";
@@ -345,9 +345,8 @@ function addOperator(op) {
         displayCurrentInputdisp();
     }
 }
-// Calculate using operator, the memory and what is current
 /**
- * [[Description]]
+ * Calculate the real current input and display it
  */
 function calculate() {
     errormessage = "";
@@ -386,9 +385,8 @@ function calculate() {
     }
     displayCurrentInputdisp();
 }
-// Change the sign of the current input
 /**
- * [[Description]]
+ * Change the sign of the current input
  */
 function changeSign() {
     errormessage = "";
