@@ -34,7 +34,7 @@ function displayCurrentInputdisp() {
 /**
  * Checks for errors and then, if none are found, encapsulates the entire current input into a square root. It also updates the deleter fuction with the length of the addition
  */
-function sqrroot() {
+function sqrRoot() {
     errormessage = "";
     displayErrorMessage();
     if (ldp(currentInputdisp)) {
@@ -95,7 +95,7 @@ function ldo(str) {
  * @param   {string} str input string
  * @returns {boolean}  whether or not the last digit is a "*" or a "/".
  */
-function ldomultdiv(str) {
+function ldoMultDiv(str) {
     if (str.slice(-1) == "*" || str.slice(-1) == "/") {
         return true;
     }
@@ -109,7 +109,7 @@ function ldomultdiv(str) {
  * @param   {string} str input string
  * @returns {boolean}  whether or not the last digit is a "+" or a "-".
  */
-function ldoplusminus(str) {
+function ldoPlusMinus(str) {
     if (str.slice(-1) == "+" || str.slice(-1) == "-") {
         return true;
     }
@@ -323,7 +323,7 @@ function mult_or_div(op) {
 function addOperator(op) {
     errormessage = "";
     displayErrorMessage();
-    if (ldomultdiv(currentInputdisp) === true || mult_or_div(op) === true) {
+    if (ldoMultDiv(currentInputdisp) === true || mult_or_div(op) === true) {
         errormessage = "Can't end with Operator";
         displayErrorMessage();
     }
@@ -332,7 +332,7 @@ function addOperator(op) {
             errormessage = "Can't end with Period";
             displayErrorMessage();
         }
-        else if (ldoplusminus(currentInputdisp.slice(-1)) === true && ldoplusminus(currentInputdisp.slice(-2, -1)) === true) {
+        else if (ldoPlusMinus(currentInputdisp.slice(-1)) === true && ldoPlusMinus(currentInputdisp.slice(-2, -1)) === true) {
             errormessage = "Too many operators";
             displayErrorMessage();
         }
@@ -491,7 +491,7 @@ function square(num) {
 /**
  * [[Description]]
  */
-function squarebutton() {
+function squareButton() {
     if (ldo(currentInputdisp)) {
         errormessage = "Can't end with an Operator";
         displayErrorMessage();
@@ -515,88 +515,88 @@ function squarebutton() {
  * [[Description]]
  * @param {[[Type]]} trigtype [[Description]]
  */
-function trigbuttons(trigtype) {
+function trigButtons(trigtype) {
     if (trigtype == 1) {
         currentInputdisp = currentInputdisp + "sin(";
         delete_disp.push(4);
-        currentInputreal = currentInputreal + "customsin(";
+        currentInputreal = currentInputreal + "customSin(";
         delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 2) {
         currentInputdisp = currentInputdisp + "cos(";
         delete_disp.push(4);
-        currentInputreal = currentInputreal + "customcos(";
+        currentInputreal = currentInputreal + "customCos(";
         delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 3) {
         currentInputdisp = currentInputdisp + "tan(";
         delete_disp.push(4);
-        currentInputreal = currentInputreal + "customtan(";
+        currentInputreal = currentInputreal + "customTan(";
         delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 4) {
         currentInputdisp = currentInputdisp + "sec(";
         delete_disp.push(4);
-        currentInputreal = currentInputreal + "customsec(";
+        currentInputreal = currentInputreal + "customSec(";
         delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 5) {
         currentInputdisp = currentInputdisp + "csc(";
         delete_disp.push(4);
-        currentInputreal = currentInputreal + "customcsc(";
+        currentInputreal = currentInputreal + "customCsc(";
         delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 6) {
         currentInputdisp = currentInputdisp + "cot(";
         delete_disp.push(4);
-        currentInputreal = currentInputreal + "customcot(";
+        currentInputreal = currentInputreal + "customCot(";
         delete_real.push(10);
         displayCurrentInputdisp();
     }
     else if (trigtype == 7) {
         currentInputdisp = currentInputdisp + "arcsin(";
         delete_disp.push(7);
-        currentInputreal = currentInputreal + "customarcsin(";
+        currentInputreal = currentInputreal + "customArcSin(";
         delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 8) {
         currentInputdisp = currentInputdisp + "arccos(";
         delete_disp.push(7);
-        currentInputreal = currentInputreal + "customarccos(";
+        currentInputreal = currentInputreal + "customArcCos(";
         delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 9) {
         currentInputdisp = currentInputdisp + "arctan(";
         delete_disp.push(7);
-        currentInputreal = currentInputreal + "customarctan(";
+        currentInputreal = currentInputreal + "customArcTan(";
         delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 10) {
         currentInputdisp = currentInputdisp + "arcsec(";
         delete_disp.push(7);
-        currentInputreal = currentInputreal + "customarcsec(";
+        currentInputreal = currentInputreal + "customArcSec(";
         delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 11) {
         currentInputdisp = currentInputdisp + "arccsc(";
         delete_disp.push(7);
-        currentInputreal = currentInputreal + "customarccsc(";
+        currentInputreal = currentInputreal + "customArcCsc(";
         delete_real.push(13);
         displayCurrentInputdisp();
     }
     else if (trigtype == 12) {
         currentInputdisp = currentInputdisp + "arccot(";
         delete_disp.push(7);
-        currentInputreal = currentInputreal + "customarccot(";
+        currentInputreal = currentInputreal + "customArcCot(";
         delete_real.push(13);
         displayCurrentInputdisp();
     }
@@ -607,7 +607,7 @@ function trigbuttons(trigtype) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customsin(num) {
+function customSin(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -621,7 +621,7 @@ function customsin(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customcos(num) {
+function customCos(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -635,7 +635,7 @@ function customcos(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customtan(num) {
+function customTan(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -649,7 +649,7 @@ function customtan(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customsec(num) {
+function customSec(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -663,7 +663,7 @@ function customsec(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customcsc(num) {
+function customCsc(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -677,7 +677,7 @@ function customcsc(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customcot(num) {
+function customCot(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -691,7 +691,7 @@ function customcot(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customarcsin(num) {
+function customArcSin(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -705,7 +705,7 @@ function customarcsin(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customarccos(num) {
+function customArcCos(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -719,7 +719,7 @@ function customarccos(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customarctan(num) {
+function customArcTan(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -733,7 +733,7 @@ function customarctan(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customarcsec(num) {
+function customArcSec(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -747,7 +747,7 @@ function customarcsec(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customarccsc(num) {
+function customArcCsc(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -761,7 +761,7 @@ function customarccsc(num) {
  * @param   {[[Type]]} num [[Description]]
  * @returns {[[Type]]} [[Description]]
  */
-function customarccot(num) {
+function customArcCot(num) {
     var angle = eval(num);
     if (if_degree == "1") {
         angle = (angle * Math.PI) / 180;
@@ -775,7 +775,7 @@ function customarccot(num) {
  * @param   {string}  str [[Description]]
  * @returns {boolean} [[Description]]
  */
-function whichparenthesis(str) {
+function whichParenthesis(str) {
     var chk = 0;
     for (var i = str.length; i >= 0; i--) {
         if (str.charAt(i) == "(") {
@@ -796,7 +796,7 @@ function whichparenthesis(str) {
 /**
  * [[Description]]
  */
-function parenthesisbackward() {
+function parenthesisBackward() {
     if (ldp(currentInputdisp)) {
         errormessage = "Can't end with Period";
         displayErrorMessage();
@@ -807,7 +807,7 @@ function parenthesisbackward() {
             displayErrorMessage();
         }
         else {
-            if (whichparenthesis(currentInputdisp) === true) {
+            if (whichParenthesis(currentInputdisp) === true) {
                 errormessage = "Parenthesis Missalignment";
                 displayErrorMessage();
             }
@@ -825,7 +825,7 @@ function parenthesisbackward() {
 /**
  * [[Description]]
  */
-function parenthesisforward() {
+function parenthesisForward() {
     if (ldp(currentInputdisp)) {
         errormessage = "Can't end with Period";
         displayErrorMessage();
@@ -965,7 +965,7 @@ function exponents() {
 /**
  * [[Description]]
  */
-function pibutton() {
+function piButton() {
     currentInputdisp += "π";
     delete_disp.push(1);
     currentInputreal += "(Math.PI)";
@@ -976,7 +976,7 @@ function pibutton() {
 /**
  * [[Description]]
  */
-function ebutton() {
+function eButton() {
     currentInputdisp += "e";
     delete_disp.push(1);
     currentInputreal += "(Math.E)";
