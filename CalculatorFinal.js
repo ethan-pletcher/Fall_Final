@@ -1,10 +1,18 @@
+//Array that stores the numbers of characters to delete for each button click as one
 var one_delete = [1];
+//Array that stores the numbers of characters to delete for each button click in the currentInputreal
 var delete_real = [];
+//Array that stores the numbers of characters to delete for each button click in the currentInputdisp
 var delete_disp = [];
+//script that stores the current error message
 var errormessage = "";
+//var that toggles between one and zero to keep track of degree/radian modes
 var if_degree = "0";
+//storage variable for M buttons
 var mem_var = "";
+//string that shows the current input to be displayed to the user
 var currentInputdisp = "";
+//string that shows the current input to be calculated for the answer
 var currentInputreal = "";
 // Helper function for displaying the current input
 
