@@ -41,10 +41,10 @@ function displayCurrentInputdisp() {
 /**
  * Checks for errors and then, if none are found, encapsulates the entire current input into a square root. It also updates the deleter fuction with the length of the addition
  */
-function sqrRoot() {
+function squareRoot() {
     errormessage = "";
     displayErrorMessage();
-    if (ldp(currentInputdisp)) {
+    if (lastDigitDecimal(currentInputdisp)) {
         errormessage = "Unexpected a decimal";
         displayErrorMessage();
     } else {
@@ -59,7 +59,7 @@ function sqrRoot() {
 /**
  * change global variable "ifdegree" between  "0" and "1"
  */
-function change_ifdegree() {
+function changeIfDegree() {
     if (if_degree == "0") {
         if_degree = "1";
     } else {
@@ -72,7 +72,7 @@ function change_ifdegree() {
  * @param   {string} str input string
  * @returns {boolean}  whether or not the last digit is a decimal
  */
-function ldp(str) {
+function lastDigitDecimal(str) {
     if (str.slice(-1) == ".") {
         return true;
     } else {
@@ -85,7 +85,7 @@ function ldp(str) {
  * @param   {string} str input string
  * @returns {boolean}  whether or not the last digit is an operator
  */
-function ldo(str) {
+function lastDigitOperator(str) {
     if (str.slice(-1) == "+" || str.slice(-1) == "/" || str.slice(-1) == "-" || str.slice(-1) == "*") {
         return true;
     } else {
@@ -98,7 +98,7 @@ function ldo(str) {
  * @param   {string} str input string
  * @returns {boolean}  whether or not the last digit is a "*" or a "/".
  */
-function ldoMultDiv(str) {
+function lastDigitOperatorMultDiv(str) {
     if (str.slice(-1) == "*" || str.slice(-1) == "/") {
         return true;
     } else {
@@ -111,7 +111,7 @@ function ldoMultDiv(str) {
  * @param   {string} str input string
  * @returns {boolean}  whether or not the last digit is a "+" or a "-".
  */
-function ldoPlusMinus(str) {
+function lastDigitOperatorPlusMinus(str) {
     if (str.slice(-1) == "+" || str.slice(-1) == "-") {
         return true;
     } else {
@@ -166,7 +166,7 @@ function addDigit(dig) {
 function addDecimal() {
     errormessage = "";
     displayErrorMessage();
-    if (ldp(currentInputdisp)) {
+    if (lastDigitDecimal(currentInputdisp)) {
         errormessage = "there is already a decimal";
         displayErrorMessage();
     } else {
@@ -186,17 +186,17 @@ function addDecimal() {
 /**
  * Adds the current display to a separate global variable that stores it as memory.
  */
-function m_plus() {
+function mPlus() {
     errormessage = "";
     displayErrorMessage();
     if ((isNaN(eval(currentInputreal))) === true) {
         errormessage = "Non a complete function";
         displayErrorMessage();
-    } if (ldo(currentInputdisp)) {
+    } if (lastDigitOperator(currentInputdisp)) {
         errormessage = "Can't end in operator";
         displayErrorMessage();
     } else {
-        if (ldp(currentInputdisp)) {
+        if (lastDigitDecimal(currentInputdisp)) {
             errormessage = "can't end in a decimal";
             displayErrorMessage();
         } else if (mem_var === "") {
@@ -217,18 +217,18 @@ function m_plus() {
 /**
  * subtracts the current display from a separate global variable that stores it as memory.
  */
-function m_minus() {
+function mMinus() {
     errormessage = "";
     displayErrorMessage();
     if ((isNaN(eval(currentInputreal))) === true) {
         errormessage = "Non a complete function";
         displayErrorMessage();
     } else {
-        if (ldo(currentInputdisp)) {
+        if (lastDigitOperator(currentInputdisp)) {
             errormessage = "Can't end in operator";
             displayErrorMessage();
         } else {
-            if (ldp(currentInputdisp)) {
+            if (lastDigitDecimal(currentInputdisp)) {
                 errormessage = "can't end in a decimal";
                 displayErrorMessage();
             } else {
@@ -244,7 +244,7 @@ function m_minus() {
 /**
  * adds the contents of the stored memory variable to the current display.
  */
-function m_reference() {
+function mReference() {
     errormessage = "";
     displayErrorMessage();
     currentInputdisp += mem_var;
@@ -271,7 +271,7 @@ function allClear() {
 /**
  * clears only memory.
  */
-function m_clear() {
+function mClear() {
     errormessage = "";
     displayErrorMessage();
     mem_var = "0";
@@ -280,7 +280,7 @@ function m_clear() {
 /**
  * clears only the input string
  */
-function InputClear() {
+function inputClear() {
     errormessage = "";
     displayErrorMessage();
     currentInputdisp = "";
@@ -311,14 +311,14 @@ function mult_or_div(op) {
 function addOperator(op) {
     errormessage = "";
     displayErrorMessage();
-    if (ldoMultDiv(currentInputdisp) === true || mult_or_div(op) === true) {
+    if (lastDigitOperatorMultDiv(currentInputdisp) === true || mult_or_div(op) === true) {
         errormessage = "Can't end with Operator";
         displayErrorMessage();
     } else {
-        if (ldp(currentInputdisp)) {
+        if (lastDigitDecimal(currentInputdisp)) {
             errormessage = "Can't end with a decimal";
             displayErrorMessage();
-        } else if (ldoPlusMinus(currentInputdisp.slice(-1)) === true && ldoPlusMinus(currentInputdisp.slice(-2, -1)) === true) {
+        } else if (lastDigitOperatorPlusMinus(currentInputdisp.slice(-1)) === true && lastDigitOperatorPlusMinus(currentInputdisp.slice(-2, -1)) === true) {
             errormessage = "Too many operators";
             displayErrorMessage();
         } else {
@@ -340,11 +340,11 @@ function calculate() {
         errormessage = "Not a Real Number";
         displayErrorMessage();
     } else {
-        if (ldo(currentInputdisp)) {
+        if (lastDigitOperator(currentInputdisp)) {
             errormessage = "Can't end with Operator";
             displayErrorMessage();
         } else {
-            if (ldp(currentInputdisp)) {
+            if (lastDigitDecimal(currentInputdisp)) {
                 errormessage = "Can't end with a decimal";
                 displayErrorMessage();
             } else {
@@ -372,11 +372,11 @@ function calculate() {
 function changeSign() {
     errormessage = "";
     displayErrorMessage();
-    if (ldo(currentInputdisp)) {
+    if (lastDigitOperator(currentInputdisp)) {
         errormessage = "Can't end with an Operator";
         displayErrorMessage();
     } else {
-        if (ldp(currentInputdisp)) {
+        if (lastDigitDecimal(currentInputdisp)) {
             errormessage = "Can't end with a decimal";
             displayErrorMessage();
         } else {
@@ -410,11 +410,11 @@ function percentage() {
         errormessage = "Not a complete function";
         displayErrorMessage();
     } else {
-        if (ldo(currentInputdisp)) {
+        if (lastDigitOperator(currentInputdisp)) {
             errormessage = "Can't end with an Operator";
             displayErrorMessage();
         } else {
-            if (ldp(currentInputdisp)) {
+            if (lastDigitDecimal(currentInputdisp)) {
                 errormessage = "Can't end with a decimal";
                 displayErrorMessage();
             } else {
@@ -432,11 +432,11 @@ function percentage() {
  * Calculate the inverse of the current input
  */
 function inverse() {
-    if (ldo(currentInputdisp)) {
+    if (lastDigitOperator(currentInputdisp)) {
         errormessage = "Can't end with an Operator";
         displayErrorMessage();
     } else {
-        if (ldp(currentInputdisp)) {
+        if (lastDigitDecimal(currentInputdisp)) {
             errormessage = "Can't end with a decimal";
             displayErrorMessage();
         } else {
@@ -463,11 +463,11 @@ function square(num) {
  * encapsolates the current input in a set of parentheses that is taken to the power of 2.
  */
 function squareButton() {
-    if (ldo(currentInputdisp)) {
+    if (lastDigitOperator(currentInputdisp)) {
         errormessage = "Can't end with an Operator";
         displayErrorMessage();
     } else {
-        if (ldp(currentInputdisp)) {
+        if (lastDigitDecimal(currentInputdisp)) {
             errormessage = "Can't end with a decimal";
             displayErrorMessage();
         } else {
@@ -741,11 +741,11 @@ function whichParenthesis(str) {
  * adds a )
  */
 function parenthesisBackward() {
-    if (ldp(currentInputdisp)) {
+    if (lastDigitDecimal(currentInputdisp)) {
         errormessage = "Can't end with a decimal";
         displayErrorMessage();
     } else {
-        if (ldo(currentInputdisp)) {
+        if (lastDigitOperator(currentInputdisp)) {
             errormessage = "Can't end with an Operator";
             displayErrorMessage();
         } else {
@@ -767,7 +767,7 @@ function parenthesisBackward() {
  * adds a (
  */
 function parenthesisForward() {
-    if (ldp(currentInputdisp)) {
+    if (lastDigitDecimal(currentInputdisp)) {
         errormessage = "Can't end with a decimal";
         displayErrorMessage();
     } else if (isNaN(currentInputdisp.slice(-1)) === false) {
@@ -832,7 +832,7 @@ function exponents() {
     errormessage = "";
     displayErrorMessage();
     var numberchk = parseFloat(currentInputdisp.slice(-1));
-    if (ldo(currentInputdisp) === true || ldp(currentInputdisp) === true) {
+    if (lastDigitOperator(currentInputdisp) === true || lastDigitDecimal(currentInputdisp) === true) {
         console.log("error");
         errormessage = "Can't take exponent of a Non-Number";
         displayErrorMessage();

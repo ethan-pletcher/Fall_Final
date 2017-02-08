@@ -13,7 +13,7 @@
     <center>
         <h1>Calculator</h1>
         <div class="onoffswitch">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="change_ifdegree()" checked>
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="changeIfDegree()" checked>
             <label class="onoffswitch-label" for="myonoffswitch"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
         </div>
         <p>
@@ -30,20 +30,20 @@
                 <td class="click4" onclick="deleter()"> <a>Del</a> </td>
             </tr>
             <tr>
-                <td class="click1" onclick="InputClear()"> <a>C</a> </td>
+                <td class="click1" onclick="inputClear()"> <a>C</a> </td>
                 <td class="click" onclick="addDigit('7')"> <a>7</a> </td>
                 <td class="click" onclick="addDigit('8')"> <a>8</a> </td>
                 <td class="click" onclick="addDigit('9')"> <a>9</a> </td>
                 <td class="click3" onclick="addOperator('/')"> <a>/</a> </td>
-                <td class="click5" onclick="m_plus()"> <a>M+</a> </td>
+                <td class="click5" onclick="mPlus()"> <a>M+</a> </td>
             </tr>
             <tr>
-                <td class="click1" onclick="sqrRoot()"> <a>√x</a> </td>
+                <td class="click1" onclick="squareRoot()"> <a>√x</a> </td>
                 <td class="click" onclick="addDigit('4')"> <a>4</a> </td>
                 <td class="click" onclick="addDigit('5')"> <a>5</a> </td>
                 <td class="click" onclick="addDigit('6')"> <a>6</a> </td>
                 <td class="click3" onclick="addOperator('*')"> <a>x</a> </td>
-                <td class="click5" onclick="m_minus()"> <a>M-</a> </td>
+                <td class="click5" onclick="mMinus()"> <a>M-</a> </td>
             </tr>
             <tr>
                 <td class="click1" onclick="squareButton()"> <a>x^2</a> </td>
@@ -51,7 +51,7 @@
                 <td class="click" onclick="addDigit('2')"> <a>2</a> </td>
                 <td class="click" onclick="addDigit('3')"> <a>3</a> </td>
                 <td class="click3" onclick="addOperator('-')"> <a>-</a> </td>
-                <td class="click5" onclick="m_reference()"> <a>MR</a> </td>
+                <td class="click5" onclick="mReference()"> <a>MR</a> </td>
             </tr>
             <tr>
                 <td class="click1" onclick="factorial()"> <a>x!</a> </td>
@@ -59,7 +59,7 @@
                 <td class="click" onclick="addDecimal()"> <a>.</a> </td>
                 <td class="click" onclick="changeSign()"> <a>+/-</a> </td>
                 <td class="click3" onclick="addOperator('+')"> <a>+</a> </td>
-                <td class="click5" onclick="m_clear()"> <a>MC</a> </td>
+                <td class="click5" onclick="mClear()"> <a>MC</a> </td>
             </tr>
             <tr>
                 <td class="click1" onclick="piButton()"> <a>π</a> </td>
