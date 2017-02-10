@@ -22,7 +22,7 @@ QUnit.test("Test the displayErrorMessage function.", function (assert) {
     currentInputreal = '';
 });
 });
-QUnit.test("Test the ldo function.", function (assert) {
+QUnit.test("Test the lastDigitOperator function.", function (assert) {
     currentInputdisp = '';
     currentInputreal = '';
 });
