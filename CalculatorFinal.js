@@ -418,7 +418,7 @@ function percentage() {
                 errormessage = "Can't end with a decimal";
                 displayErrorMessage();
             } else {
-                var perc = (eval(currentInputreal)) * 0.01;
+                var perc = (eval(currentInputreal)) * .01;
                 currentInputdisp = perc.toString();
                 delete_disp.push((currentInputdisp.length));
                 currentInputreal = perc.toString();
