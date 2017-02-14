@@ -103,7 +103,6 @@ QUnit.test("Test the percentage function.", function (assert) {
           currentInputdisp = '';
           currentInputreal = '';
 });
-
 QUnit.test("Test the displayCurrentInputdisp function.", function (assert) {
           currentInputdisp = "Testing..."
           displayCurrentInputdisp()
@@ -151,7 +150,7 @@ QUnit.test("Test the lastDigitOperatorMultDiv function.", function (assert) {
 QUnit.test("Test the secondDecimal function.", function (assert) {
           var str1 = "4.5";
           var str2 = "4.5+(3-2.";
-           var str3 = "4.5+(3-2";
+          var str3 = "4.5+(3-2";
           var result = secondDecimal(str1);
           assert.deepEqual(result, true, "We expect result to be true");
           var result = secondDecimal(str2);
@@ -164,37 +163,91 @@ QUnit.test("Test the secondDecimal function.", function (assert) {
 QUnit.test("Test the mPlus function.", function (assert) {
           addDigit("3");
           addOperator("*");
-          addOperator("2");
+          addDigit("2");
           mPlus();
           assert.equal(mem_var, "6", "Passed - 6");
           currentInputdisp = '';
           currentInputreal = '';
+          addDigit("3");
+          addOperator("*");
+          addDigit("2");
+          mPlus();
+          assert.equal(mem_var, "12", "Passed - 12");
+          currentInputdisp = '';
+          currentInputreal = '';
+          mem_var = "0";
 });
 QUnit.test("Test the mMinus function.", function (assert) {
+          addDigit("3");
+          addOperator("*");
+          addDigit("2");
+          mMinus();
+          assert.equal(mem_var, "-6", "Passed - -6");
+          currentInputdisp = '';
+          currentInputreal = '';
+          addDigit("3");
+          addOperator("*");
+          addDigit("2");
+          mMinus();
+          assert.equal(mem_var, "-12", "Passed - -12");
           currentInputdisp = '';
           currentInputreal = '';
 });
 QUnit.test("Test the mReference function.", function (assert) {
+          mem_var = "-12"
+          mReference();
+          assert.equal(mem_var, "-12", "Passed - -12");
           currentInputdisp = '';
           currentInputreal = '';
 });
 QUnit.test("Test the allClear function.", function (assert) {
+          currentInputdisp = '56';
+          currentInputreal = '34+9';
+          mem_var = '123';
+          allClear();
+          assert.equal(mem_var, "0", "Passed - 0");
+          assert.equal(currentInputdisp, "", "Passed - ");
+          assert.equal(currentInputreal, "", "Passed - ");
           currentInputdisp = '';
           currentInputreal = '';
 });
 QUnit.test("Test the inputClear function.", function (assert) {
+          currentInputdisp = '56';
+          currentInputreal = '34+9';
+          inputClear();
+          assert.equal(currentInputdisp, "", "Passed - ");
+          assert.equal(currentInputreal, "", "Passed - ");
           currentInputdisp = '';
           currentInputreal = '';
 });
 QUnit.test("Test the mClear function.", function (assert) {
+          mem_var = '123';
+          mClear();
+          assert.equal(mem_var, "0", "Passed - 0");
           currentInputdisp = '';
           currentInputreal = '';
 });
 QUnit.test("Test the mult_or_div function.", function (assert) {
+          addDigit("2");
+          addOperator("+");
+          var result = mult_or_div("/");
+          assert.deepEqual(result, true, "We expect result to be true");
+          currentInputdisp = '';
+          currentInputreal = '';
+          addDigit("2");
+          var result = mult_or_div("*");
+          assert.deepEqual(result, false, "We expect result to be false");
           currentInputdisp = '';
           currentInputreal = '';
 });
 QUnit.test("Test the addOperator function.", function (assert) {
+          addDigit("2");
+          assert.equal(currentInputdisp, "6", "Passed - 6");
+          currentInputdisp = '';
+          currentInputreal = '';
+          addDigit("2");
+          var result = mult_or_div("*");
+          assert.deepEqual(result, false, "We expect result to be false");
           currentInputdisp = '';
           currentInputreal = '';
 });
