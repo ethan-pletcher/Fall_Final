@@ -242,16 +242,22 @@ QUnit.test("Test the mult_or_div function.", function (assert) {
 });
 QUnit.test("Test the addOperator function.", function (assert) {
           addDigit("2");
-          assert.equal(currentInputdisp, "6", "Passed - 6");
-          currentInputdisp = '';
-          currentInputreal = '';
-          addDigit("2");
-          var result = mult_or_div("*");
-          assert.deepEqual(result, false, "We expect result to be false");
+          addOperator("+");
+          assert.equal(currentInputdisp, "2+", "Passed - 2+");
           currentInputdisp = '';
           currentInputreal = '';
 });
 QUnit.test("Test the calculate function.", function (assert) {
+          addDigit("2");
+          addDigit("4");
+          addOperator("*");
+          addDigit("2");
+          addOperator("/");
+          addDigit("12");
+          inverse();
+          calculate();
+          assert.equal(currentInputdisp, "0.25", "Passed - 0.25");
+          assert.equal(currentInputreal, "0.25", "Passed - 0.25");
           currentInputdisp = '';
           currentInputreal = '';
 });
