@@ -320,12 +320,22 @@ QUnit.test("Test the changeSign function.", function (assert) {
           currentInputreal = '';
 });
 QUnit.test("Test the factorial function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        addDigit('5')
+        factorial();
+        assert.deepEqual(currentInputdisp, "5!", "Passed - 5!")
+        assert.deepEqual(currentInputreal, "toFactorial(5)", "Passed - toFactorial(5)")
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the deleter function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        addDigit('5')
+        addOperator('+')
+        eButton();
+        deleter();
+        assert.deepEqual(currentInputdisp, "5+", "Passed - 5+")
+        assert.deepEqual(currentInputreal, "5+", "Passed - 5+")
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the exponents function.", function (assert) {
           currentInputdisp = '';
@@ -336,6 +346,11 @@ QUnit.test("Test the whichParenthisis function.", function (assert) {
           currentInputreal = '';
 });
 QUnit.test("Test the toFactorial function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        addDigit('5')
+        factorial(currentInputdisp);
+        calculate(currentInputdisp);
+        assert.deepEqual(currentInputdisp, "120", "Passed - 120");
+        assert.deepEqual(currentInputreal, "120", "Passed - 120");
+        currentInputdisp = '';
+        currentInputreal = '';
 });
