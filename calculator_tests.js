@@ -344,12 +344,8 @@ QUnit.test("Test the deleter function.", function (assert) {
         currentInputreal = '';
 });
 QUnit.test("Test the exponents function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
-});
-QUnit.test("Test the whichParenthisis function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the toFactorial function.", function (assert) {
         addDigit('5')
