@@ -322,8 +322,12 @@ QUnit.test("Test the parenthesisForward function.", function (assert) {
           currentInputreal = '';
 });
 QUnit.test("Test the changeSign function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        addDigit = '5'
+        changeSign(currentInputdisp);
+        assert.deepEqual(currentInputdisp, "-5", "Passed - -5")
+        assert.deepEqual(currentInputreal, "-5", "Passed - -5")
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the factorial function.", function (assert) {
         addDigit('5')
@@ -344,6 +348,13 @@ QUnit.test("Test the deleter function.", function (assert) {
         currentInputreal = '';
 });
 QUnit.test("Test the exponents function.", function (assert) {
+        addDigit('5')
+        exponents(currentInputdisp);
+        addDigit('3')
+        addDigit(')')
+        calculate(currentInputdisp);
+        assert.deepEqual(currentInputdisp, "125", "Passed - 125");
+        assert.deepEqual(currentInputreal, "125", "Passed - 125");
         currentInputdisp = '';
         currentInputreal = '';
 });
