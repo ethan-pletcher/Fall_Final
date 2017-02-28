@@ -262,8 +262,66 @@ QUnit.test("Test the calculate function.", function (assert) {
           currentInputreal = '';
 });
 QUnit.test("Test the trigButton function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        trigButtons(1);
+        assert.deepEqual(currentInputdisp, "sin(", "Passed - sin(")
+        assert.deepEqual(currentInputreal, "customSin(", "Passed - customSin(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(2);
+        assert.deepEqual(currentInputdisp, "cos(", "Passed - cos(")
+        assert.deepEqual(currentInputreal, "customCos(", "Passed - customCos(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(3);
+        assert.deepEqual(currentInputdisp, "tan(", "Passed - tan(")
+        assert.deepEqual(currentInputreal, "customTan(", "Passed - customTan(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(4);
+        assert.deepEqual(currentInputdisp, "sec(", "Passed - sec(")
+        assert.deepEqual(currentInputreal, "customSec(", "Passed - customSec(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(5);
+        assert.deepEqual(currentInputdisp, "csc(", "Passed - csc(")
+        assert.deepEqual(currentInputreal, "customCsc(", "Passed - customCsc(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(6);
+        assert.deepEqual(currentInputdisp, "cot(", "Passed - cot(")
+        assert.deepEqual(currentInputreal, "customCot(", "Passed - customCot(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(7);
+        assert.deepEqual(currentInputdisp, "arcsin(", "Passed - arcsin(")
+        assert.deepEqual(currentInputreal, "customArcSin(", "Passed - customArcSin(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(8);
+        assert.deepEqual(currentInputdisp, "arccos(", "Passed - arccos(")
+        assert.deepEqual(currentInputreal, "customArcCos(", "Passed - customArcCos(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(9);
+        assert.deepEqual(currentInputdisp, "arctan(", "Passed - arctan(")
+        assert.deepEqual(currentInputreal, "customArcTan(", "Passed - customArcTan(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(10);
+        assert.deepEqual(currentInputdisp, "arcsec(", "Passed - arcsec(")
+        assert.deepEqual(currentInputreal, "customArcSec(", "Passed - customArcSec(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(11);
+        assert.deepEqual(currentInputdisp, "arccsc(", "Passed - arccsc(")
+        assert.deepEqual(currentInputreal, "customArcCsc(", "Passed - customArcCsc(")
+        currentInputdisp = '';
+        currentInputreal = '';
+        trigButtons(12);
+        assert.deepEqual(currentInputdisp, "arccot(", "Passed - arccot(")
+        assert.deepEqual(currentInputreal, "customArcCot(", "Passed - customArcCot(")
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the customSin function.", function (assert) {
         trigButtons(1);
