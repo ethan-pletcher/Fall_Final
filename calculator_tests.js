@@ -266,8 +266,15 @@ QUnit.test("Test the trigButton function.", function (assert) {
           currentInputreal = '';
 });
 QUnit.test("Test the customSin function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        trigButtons(1);
+        addDigit('90')
+        addDigit(')')
+        changeIfDegree();
+        calculate(currentInputdisp);
+        assert.deepEqual(currentInputdisp, "1", "Passed - 1");
+        assert.deepEqual(currentInputreal, "1", "Passed - 1");
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the customCos function.", function (assert) {
           currentInputdisp = '';
