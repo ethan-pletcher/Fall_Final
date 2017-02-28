@@ -314,18 +314,28 @@ QUnit.test("Test the customArcCot function.", function (assert) {
           currentInputreal = '';
 });
 QUnit.test("Test the parenthesisBackward function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        addDigit('(')
+        addDigit('5')
+        parenthesisBackward();
+        assert.deepEqual(currentInputdisp, "(5)", "Passed - (5)");
+        assert.deepEqual(currentInputreal, "(5)", "Passed - (5)");
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the parenthesisForward function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        addDigit('5')
+        addOperator('+')
+        parenthesisForward();
+        assert.deepEqual(currentInputdisp, "5+(", "Passed - 5+(");
+        assert.deepEqual(currentInputreal, "5+(", "Passed - 5+(");
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the changeSign function.", function (assert) {
-        addDigit = '5'
+        addDigit('5')
         changeSign(currentInputdisp);
-        assert.deepEqual(currentInputdisp, "-5", "Passed - -5")
-        assert.deepEqual(currentInputreal, "-5", "Passed - -5")
+        assert.deepEqual(currentInputdisp, "-(5)", "Passed -(5)")
+        assert.deepEqual(currentInputreal, "-(5)", "Passed -(5)")
         currentInputdisp = '';
         currentInputreal = '';
 });
