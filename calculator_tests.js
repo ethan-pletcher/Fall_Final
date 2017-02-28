@@ -277,24 +277,59 @@ QUnit.test("Test the customSin function.", function (assert) {
         currentInputreal = '';
 });
 QUnit.test("Test the customCos function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        trigButtons(2);
+        addDigit('0')
+        addDigit(')')
+        changeIfDegree();
+        calculate(currentInputdisp);
+        assert.deepEqual(currentInputdisp, "1", "Passed - 1");
+        assert.deepEqual(currentInputreal, "1", "Passed - 1");
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the customTan function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        trigButtons(3);
+        addDigit('45')
+        addDigit(')')
+        changeIfDegree();
+        calculate(currentInputdisp);
+        assert.deepEqual(currentInputdisp, "1", "Passed - 1");
+        assert.deepEqual(currentInputreal, "1", "Passed - 1");
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the customSec function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        trigButtons(4);
+        addDigit('60')
+        addDigit(')')
+        changeIfDegree();
+        calculate(currentInputdisp);
+        assert.deepEqual(currentInputdisp, "2", "Passed - 2");
+        assert.deepEqual(currentInputreal, "2", "Passed - 2");
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the customCsc function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        trigButtons(5);
+        addDigit('30')
+        addDigit(')')
+        changeIfDegree();
+        calculate(currentInputdisp);
+        assert.deepEqual(currentInputdisp, "2", "Passed - 2");
+        assert.deepEqual(currentInputreal, "2", "Passed - 2");
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the customCot function.", function (assert) {
-          currentInputdisp = '';
-          currentInputreal = '';
+        trigButtons(6);
+        addDigit('45')
+        addDigit(')')
+        changeIfDegree();
+        calculate(currentInputdisp);
+        assert.deepEqual(currentInputdisp, "1", "Passed - 1");
+        assert.deepEqual(currentInputreal, "1", "Passed - 1");
+        currentInputdisp = '';
+        currentInputreal = '';
 });
 QUnit.test("Test the customArcSin function.", function (assert) {
           currentInputdisp = '';
